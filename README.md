@@ -17,7 +17,7 @@ Installation
 You can potentially have only one node which serves as the<br />
 work server, monitoring server, mongo server, smtp server
 
-pip install shinchan (Work Server)
+pip install shinchan (Work Server)<br />
 git clone https://github.com/asamat/shinchan.git (Monitoring Server)
 
 Mongo Setup
