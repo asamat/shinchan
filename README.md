@@ -2,7 +2,7 @@
 
 Overview
 ========
-ShinChan is a logging tool, based on top of python's logging library, in addition to manage and write your logs, it provides and architecture to log and send critical messages as email, so that one can take immediate action.
+ShinChan is a logging tool, based on top of python's logging library, in addition to managing and writing your logs, it provides a system to log and send critical messages as email, so that one can take immediate action.
 
 Why Should I use it
 -------------------
