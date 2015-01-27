@@ -18,7 +18,7 @@ class Monitor:
         self.check_interval = int(getConfigValue(config_map, 'check_interval', 3600))
         self.email_client = Email(config_file_path)
         self.mongo_host = getConfigValue(config_map, 'mongo_db_host', "localhost")
-        self.mongo_port = getConfigValue(config_map, 'mongo_db_port', "27017")
+        self.mongo_port = getConfigValue(config_map, 'mongo_db_port', 27017)
         self.mongo_db = getConfigValue(config_map, 'database', "logging")
         self.module_tag_list = getConfigValue(config_map, 'module_tags', 'GENERAL').split()
                

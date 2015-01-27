@@ -4,14 +4,22 @@ import hashlib
 
 def getConfig(filepath):
     config_map = {}
-    fpath = os.path.dirname(os.path.realpath(__file__))
-
+    fpath = "/".join(os.path.dirname(os.path.realpath(__file__)).split("/")[0:-1]).rstrip("/")
+    f = None
     try:
         f = open(filepath)
-    except :
-        print("Error: Please Provide full path to config file")
-        sys.exit(1)
-        
+    except:
+        print("Reading from default config file")
+    
+    if f is None:
+        # next try the logging code directory
+        filepath = "%s/config/logging.conf" % fpath
+        print(filepath)
+        try:
+            f = open(filepath)
+        except:
+            print("Error, unable to find any config file")
+
     if f is not None:
         config_map = yaml.safe_load(f)
         f.close()

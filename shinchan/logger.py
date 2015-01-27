@@ -15,16 +15,16 @@ class Logger:
     module_type = None
     mongo_client = None
 
-    def __init__(self, module_type = 'GENERAL', config_file_path = "./config/logging.conf"):
+    def __init__(self, module_type = 'GENERAL', config_file_path = None):
         self.module_type = module_type
         config_map = getConfig(filepath = config_file_path)
         log_dir = getConfigValue(config_map, 'log_dir', '/tmp')
         log_prefix = getConfigValue(config_map, 'log_prefix', 'log')
         log_level = getConfigValue(config_map, 'log_level', "DEBUG")
-        self.trigger_mode_list =  self.__load_email_tigger__(getConfigValue(config_map, 'email_trigger',['CRITICAL']).split(" "))
+        self.trigger_mode_list =  self.__load_email_tigger__(getConfigValue(config_map, 'email_trigger','CRITICAL').split(" "))
         
         mongo_host = getConfigValue(config_map, 'mongo_db_host', "localhost")
-        mongo_port = getConfigValue(config_map, 'mongo_db_port', "27017")
+        mongo_port = getConfigValue(config_map, 'mongo_db_port', 27017)
         mongo_db = getConfigValue(config_map, 'database', "logger")
         mongo_table = module_type.lower()
         self.mongo_client = Mongo(mongo_host, mongo_port, mongo_db, mongo_table)
